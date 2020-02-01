@@ -1,4 +1,10 @@
-﻿
+﻿<?php
+// start session 
+session_start();
+
+// ------Do Not forget to add the alert here if the username or password was not correct -----------
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +13,6 @@
 	<meta http-equiv="X-UA-Copmatible" content="ie-edge">
 	<title>Login Page</title>
     <link rel="stylesheet" href="bootstrap.min.css" />
-    <link rel="stylesheet" href="Login-Form-Clean.css" />
   	<link rel="stylesheet" href="stylesheet/style.css" />
 </head>
 <body>
@@ -18,13 +23,11 @@
             <div class="illustration"><i class="icon ion-ios-navigate"></i></div>
             <div class="form-group"><input class="form-control" type="text" name="user" placeholder="Username" autofocus required /></div>
             <div class="form-group"><input class="form-control" type="password" name="pass" placeholder="Password" required /></div>
-            <div class="form-group"><button class="btn btn-primary btn-block" type="submit" name="submit">Log In</button></div>
-				<a href="#" class="forgot">Forgot your email or password?</a>
+            <div class="form-group"><button class="btn btn-primary btn-block" type="submit" name="submit">Log in</button></div>
+				<a href="#" class="forgot">Forgot your email or password?</a>       
 		</form>
+
     </div>
-
-   
-
 
 </body>
 </html>

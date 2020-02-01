@@ -2,24 +2,29 @@
 // to start the session.
 session_start();
 
-// to include hte reuired files
-require 'require/requireOnce.php';
+// to include the reuired file
+require 'user.php';
 
 // crate new connection object 
 $conn = new user();
-$check = $conn->login($username, $password);
 
 if(isset($_POST['submit']))
 {
 	$username = $_POST['user'];
 	$password = $_POST['pass'];
-	if(!$check){
-		$_SESSION['message'] = 'Invalid username or password'; // need to delete it,,, to make sure if the username and password correct
-    	header('location:index.php');
+
+	$check = $conn->login($username, $password);
+
+		// to check if the username and password in database, and redirect the page to the main one if yes.
+	if(!$check)
+	{
+		$_SESSION['alert'] = 'username or password is incorrect!!'; // To make sure if the username and password correct
+    	header('location:index.php'); 	// If no stay in index page.
 	}
-	else{
+	else
+	{
 		$_SESSION['user'] = $check;
-		header('location:main.php');
+		header('location:main.php');	// If yes redirct to the main page.
 	}
 }
 

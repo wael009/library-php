@@ -1,7 +1,7 @@
 <?php
- require 'require/requireOnce.php';
+ require 'databases.php';
 
- class user extends database // extends to access the database connection as the connect function has been set to be protected. (if 'public' we can get rid of the extends database)
+ class user extends database // extends to access the database connection as the connect function has been set to be protected. (if 'public' we can get rid of the extends database).
  {
     private $db;
 
@@ -23,16 +23,16 @@
             $statement->bindParam(2, $password);
             $statement->execute();
             
+/* -----------  !!!!  DO NOT FORGET to fix this part again !!!!  ---------- */
             if ($statement->rowCount() == 1) 
             {   
-                $_SESSION['user'] = $statement;
-                header('location:main.php');  // to make sure if the connection was successfully
+                $_SESSION['user'] = $statement;// to make sure if the connection was successfully
+                header('location:main.php');  // if yes go the main page
             }
             else
-            {	$_SESSION['message'] = 'Invalid username or password'; // not finish yet
+            {	$_SESSION['alert'] = 'username or password is incorrect!!'; // if not stay in the index page
                 header('location:index.php');
             }
-
         }
     }
 
@@ -43,6 +43,5 @@
         return true;
     }
  }
-
 
 ?>
