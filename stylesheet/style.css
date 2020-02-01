@@ -6,10 +6,11 @@
 }
 
 .login-clean form {
-  max-width: 16%;
+  max-width: 22%;
+  height: 29rem;
   margin: 0 auto;
   background-color: #ffffff;
-  padding: 45px;
+  padding: 55px;
   border-radius: 0;
   color: #161e25;
   box-shadow: 2px 3px 5px 5px #E91E63;
@@ -17,11 +18,11 @@
 
 }
 
-.login-clean .illustration {
-  text-align:center;
-  padding:0 0 20px;
-  font-size:100px;
-  color:rgb(244,71,107);
+.login-clean .login-form{
+  font-family: auto;
+  font-size: 30px;
+  font-style: italic;
+  padding: 30px 0 30px 0;
 }
 
 .login-clean form .form-control {
@@ -42,7 +43,7 @@
   border-radius:4px;
   padding:11px;
   box-shadow:none;
-  margin: 20px 0 20px 0px;
+  margin: 40px 0 15px 0;
   text-shadow:none;
   outline:none !important;
 }
@@ -58,7 +59,7 @@
 .login-clean form .forgot {
   display:block;
   text-align:center;
-  font-size:12px;
+  font-size:14px;
   color:#6f7a85;
   opacity:0.9;
   text-decoration:none;
