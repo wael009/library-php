@@ -16,8 +16,6 @@
               </div>
                 <!-- Copyright -->
         </div>
-
-        
     </footer>
 </div>
       <!-- Footer end  -->

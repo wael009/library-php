@@ -3,11 +3,12 @@
 class database
 {
 
-    // specify the database connections variables
+    // to specify the database connections variables
     private $dbserver = 'mysql:host=localhost;dbname=library';
     private $dbuser = "root";
     private $dbpass = "";
     private $pdo;
+
 
     protected function connect()    
     {
@@ -22,6 +23,7 @@ class database
 
         return $this->pdo;
     }
+
 
     
     // To disconnect the connection to the database

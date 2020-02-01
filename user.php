@@ -29,7 +29,7 @@
                 header('location:main.php');  // to make sure if the connection was successfully
             }
             else
-            {	$_SESSION['message'] = 'Invalid username or password';
+            {	$_SESSION['message'] = 'Invalid username or password'; // not finish yet
                 header('location:index.php');
             }
 
