@@ -1,5 +1,5 @@
 <?php
- require 'databases.php';
+ require 'database.php';
 
  class user extends database // extends to access the database connection as the connect function has been set to be protected. (if 'public' we can get rid of the extends database).
  {
