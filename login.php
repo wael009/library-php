@@ -26,6 +26,8 @@ if(isset($_POST['submit']))
 	// 	$_SESSION['user'] = $check;
 	// 	header('location:main.php');	// If yes redirct to the main page.
 	// }
+
+	
 }
 
 ?>

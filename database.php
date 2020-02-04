@@ -1,5 +1,6 @@
 <?php
 
+
 class database
 {
     // To specify the database connections variables
@@ -29,6 +30,5 @@ class database
         return $this->pdo;
     }
 }
-
 
 ?>
