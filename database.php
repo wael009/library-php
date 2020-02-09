@@ -1,6 +1,4 @@
 <?php
-
-
 class database
 {
     // To specify the database connections variables
@@ -8,6 +6,7 @@ class database
     private $dbuser = "root";
     private $dbpass = "";
     private $pdo;
+
 
     protected function connect()    
     {
@@ -30,5 +29,6 @@ class database
         return $this->pdo;
     }
 }
+
 
 ?>

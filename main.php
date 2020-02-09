@@ -1,12 +1,16 @@
-<?
-include "header.php";
+<?php
+   // start the session
+session_start();
+
+require_once "test.php";
+include "layout/header.php";
 
 ?>
 
-<div class="">
+<div class="container-fluid m-4">
   <div class="row">
-    <div class="col-lg-12">
-      <div class="jumbotron">
+    <div class="col-sm-12">
+      <div class="">
         <h4 class="mb-4"> All Books </h4>
 
         <table class="table">
@@ -16,27 +20,33 @@ include "header.php";
       <th scope="col">Book Title</th>
       <th scope="col">Author</th>
       <th scope="col">Publisher</th>
-      <th scope="col">Admin Action</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
 
-    </tr>
+<?php
+// To make new object from the test
+  $newtest = new test();
+  $rows = $newtest->select();
+  
+  foreach ($rows as $row)
+  {
+?>
+    <tr>
+    <th scope="row"><?php echo $row['id']; ?></th>
+    <td><?php echo $row['title'];?></td>
+    <td><?php echo $row['author'];?></td>
+    <td><?php echo $row['publisher'];?></td>
+   </tr>
+<?php
+  }
+?>
   </tbody>
-</table>
+</table>      
       </div>
      </div>
     </div>
 </div>
 
-<?php
-
-include "footer.php";
-?>
 
 

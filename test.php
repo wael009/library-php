@@ -1,5 +1,5 @@
 <?php
-
+//require_once 'BasicObject.php';
 require_once "user.php";
 
 
@@ -34,22 +34,32 @@ class test extends user
       return $data;
     }
   }
-
-
-
-  // to display the book in saprate page
-  public function read()
-  {
-  
-  }
   
   
     // to create new book (will be in different page)
   public function create()
   {
+        //$sql = "INSERT INTO book (title, author, publisher) VALUES (:title,:author,:publisher)";
+    $implodeColumns = implode(', ',array_keys($fields));
+
+    $implodPlaceholder = implode(", :",array_keys($fields));
+
+    // to insert the data to the database.
+    $sql = "INSERT INTO book ($implodeColumns) VALUES (:".$implodPlaceholder.")";
+
+    // still need to do the statement and connection to the database
+
+
   
   }
   
+
+   // to display the book in saprate page
+   public function read()
+   {
+   
+
+   }
   
   
     // to update a book (will be in different page as well)
