@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-md-12 item text-center">
                     <h3>World of books</h3>
-                    <p>Many books and stories will be available soon in the World of Books soon.</p>
+                    <p>Praesent sed lobortis mi. Suspendisse vel placerat ligula. Vivamus ac sem lacus. Ut vehicula rhoncus elementum. Etiam quis tristique lectus. Aliquam in arcu eget velit pulvinar dictum vel in justo.</p>
 
                 </div>
               </div>
@@ -16,6 +16,8 @@
               </div>
                 <!-- Copyright -->
         </div>
+
+        
     </footer>
 </div>
       <!-- Footer end  -->

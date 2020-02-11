@@ -2,10 +2,10 @@
 // to start the session.
 session_start();
 
-// to include the reuired file
-require 'user.php';
+// to include hte required file
+require_once 'user.php';
 
-// crate new connection object 
+// crate new connection object
 $conn = new user();
 
 if(isset($_POST['submit']))
