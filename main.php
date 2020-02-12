@@ -92,7 +92,7 @@ if(isset($_GET['del']))
     <div class="col-lg-12">
 
 
-        <table class="table table-striped table-hover">
+        <table class="table table-hover">
   <thead>
     <tr>
       <th scope="col">#</th>
@@ -100,7 +100,6 @@ if(isset($_GET['del']))
       <th scope="col">Book Title</th>
       <th scope="col">Author</th>
       <th scope="col">Publisher</th>
-      <th scope="col">Admin Action</th>
     </tr>
   </thead>
           <tbody>
@@ -125,10 +124,6 @@ if(isset($_GET['del']))
           <span class='glyphicon glyphicon-list'></span> Read </a></td>
 
 
-
-    <td><a href="update.php?id=<?php echo $row['id'];?>" class="text-primary"><i class="fa fa-fw fa-edit"></i> Edit</a> | </td>
-    <td><a href="main.php?del=<?php echo $row['id']; ?>" class="text-danger" onClick="return confirm('Are you sure to delete this user?');"><i class="fa fa-fw fa-trash"></i> Delete</a></td>
-
   </tr>
 <?php
   }
@@ -147,8 +142,6 @@ if(isset($_GET['del']))
 </main>
 </div> 
 </div> 
-
-
 
 
 
