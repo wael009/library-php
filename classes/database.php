@@ -1,6 +1,15 @@
 <?php
+//namespace main\classes;
 
-class database
+require_once 'classes/IDatabase.php';
+require_once 'BasicObject.php';
+
+
+use \Main\BasicObject;
+use \main\classes\IDatabase;
+
+
+class database implements IDatabase
 {
     // To specify the database connections variables
     private $dbserver = 'mysql:host=localhost;dbname=library';  // define the (host and dbname)
@@ -17,7 +26,7 @@ class database
         $this->pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 
         // To set the PDO error mode to exception.
-        $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);  
 
         return $this->pdo;
     }
@@ -26,6 +35,7 @@ class database
     public function disconnect()
     {
         $this->pdo = null;
+
         return $this->pdo;
     }
 }

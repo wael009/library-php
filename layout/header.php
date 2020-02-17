@@ -9,6 +9,9 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
       <!-- Auhtor's stylesheet  -->
   <link rel="stylesheet" href="stylesheet/style.css" />
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
           <!-- Nav start here  -->
@@ -30,10 +33,10 @@
         <a class="nav-link" href="layout/ContactUs.php">Contact us</a>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-2">
-      <input class="form-control mr-sm-4" type="search" placeholder="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+        <a href="index.php" class="btn btn-info btn-lg">
+          <span class="glyphicon glyphicon-log-out"></span> Log out
+        </a>
+
   </div>
 </nav>
           <!-- Nav end here  -->

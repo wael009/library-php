@@ -1,17 +1,17 @@
 <?php
-require_once "bookClass.php";
-require_once "database.php";
+require_once "classes/bookClass.php";
+require_once "classes/database.php";
 
 // include the layout of the header
 include "layout/header.php";
 
-// get ID of the bookClass to be read
+// need to the get ID of the bookClass to be read
 $id = isset($_GET['id']) ? $_GET['id'] : die('ERROR: missing ID.');
 
 if(isset($_GET['id']))
 {
-  $uid = $_GET['id'];
 
+  $uid = $_GET['id'];
   $updateObj = new bookClass();
   $result = $updateObj->readOnce($uid);
 }
@@ -23,14 +23,14 @@ if(isset($_POST['submit']))
   $title = $_POST['title'];
   $author = $_POST['author'];
   $publisher = $_POST['publisher'];
-  $cover = $_POST['cover'];
+  $image = $_POST['image'];
 
 
 $fields = [
   'title'=>$title,
   'author'=>$author,
   'publisher'=>$publisher,
-  'cover'=>$cover
+  'image'=>$image
 ];
 
 $id = $_POST['id'];
@@ -68,7 +68,7 @@ $updateObj->update($fields, $id);
   </div>
   <div class="form-group">
     <label for="cover">Book Cover</label>
-    <input type="file" class="form-control-file" name="cover" placeholder="cover" value="<?php echo $result['cover'];?>">
+    <input type="file" class="form-control-file" name="image" placeholder="image" value="<?php echo $result['image'];?>">
   </div>
   <br/> 
 

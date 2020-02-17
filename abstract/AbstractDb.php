@@ -2,6 +2,9 @@
 
     // Creating abstract class to use the common attributes we want 
     // and to use them in any different database to connect 
+
+
+    // note link it to database class
 abstract class AbstractDb
 {
     	// Attributes

@@ -57,13 +57,11 @@
 }
 
 .login-clean form .forgot {
-  display:block;
   text-align:center;
   font-size:14px;
   color:#6f7a85;
   opacity:0.9;
   text-decoration:none;
-  padding: 20px 0px 0px 0px;
   
 }
 
@@ -72,3 +70,12 @@
   text-decoration:none;
 }
 
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #efefef;
+  text-align: center;
+}

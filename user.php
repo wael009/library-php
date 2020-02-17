@@ -1,7 +1,11 @@
 <?php
- require_once 'database.php';
+ require_once 'classes/database.php';
 
- class user extends database // extends to access the database connection as the connect function has been set to be protected. (if 'public' we can get rid of the extends database).
+
+ 
+ //use \main\classes\database;
+
+ class user extends database
  {
     private $db;
 
@@ -14,15 +18,17 @@
     // to check the login if the username and password are already in the database
     public function login($username, $password) 
     {
-        // to chech the username or password not empty
+        // to check either the username and password are not empty
         if(!empty($username) && !empty($password))
         {
+            // selecting from the database the username and password
             $statement = $this->db->prepare("SELECT * FROM users WHERE username = '$username' AND password = '$password'");
+            // bind the paramter of the username and password
             $statement->bindParam(1, $username);
             $statement->bindParam(2, $password);    
-            $statement->execute();
+            $statement->execute();  // to execute the statement
             
-            if ($statement->rowCount() == 1) 
+            if ($statement->rowCount() == 1)
             {   
                 return true;
             }

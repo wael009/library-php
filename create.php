@@ -1,8 +1,7 @@
 <?php
 // To include database and any other object files
-require_once "bookClass.php";
-require_once "database.php";
-
+require_once "classes/bookClass.php";
+require_once "classes/database.php";
 
 
 if(isset($_POST['submit']))
@@ -10,22 +9,29 @@ if(isset($_POST['submit']))
   $title = $_POST['title'];
   $author = $_POST['author'];
   $publisher = $_POST['publisher'];
-  $cover = $_POST['cover'];
+  $image = $_POST['image'];
 
 
 $fields = [
   'title'=>$title,
   'author'=>$author,
   'publisher'=>$publisher,
-  'cover'=>$cover
+  'image'=>$image
 ];
 
 $createObj = new bookClass();
 $createObj->create($fields);
 
+// if(isset($POST['submit-cover']))
+
+$createObj->uploadPhoto();
+
+
+
+
 }
 
-// include the layout of the header
+// to include the header
 include "layout/header.php";
 ?>
 
@@ -53,11 +59,18 @@ include "layout/header.php";
   </div>
   
   <div class="form-group">
-    <label for="cover">Book Cover</label>
-    <input type="file" class="form-control-file" name="cover" placeholder="Book cover">
+    <label for="image">Select book Cover</label>
+    <input type="file" class="btn btn-outline-dark" name="image" placeholder="Book cover">
   </div>
   <br/> 
-    <input type="submit" name="submit" class="btn btn-primary">
+    <input type="submit" name="submit" class="btn btn-primary btn-lg">
+
+
+
+
+
+
+  <br/> 
 </form>
 
 

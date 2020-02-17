@@ -1,16 +1,18 @@
 <?php
+namespace main\classes;
 
 //interface one
-// ----------  notes -------------- //
-// the library will contain many items like (books, Stories, articles, journals, etc), so we can use it as an interface for them...
+
+// Note:  the library may contain many classes for different items such as (books, Stories, articles, journals, etc), so we can use an interface to implement the same functionality...
+
 
 interface ILibrary
 {
-    public function create(id, title, author, publisher);
     public function readAllData();
-    public function readOnce();
-    public function update();
-    public function delete();
+    public function create($fields);
+    public function readOnce($id);
+    public function update($fields, $id);
+    public function delete($id);
 
 }
 

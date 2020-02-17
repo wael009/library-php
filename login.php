@@ -2,7 +2,7 @@
 // to start the session.
 session_start();
 
-// to include hte required file
+// to include the required file
 require_once 'user.php';
 
 // crate new connection object
