@@ -108,7 +108,6 @@ if(isset($_GET['del']))
         <table class="table table-hover">
   <thead>
     <tr>
-      <th scope="col">#</th>
       <th scope="col">Book Cover</th>
       <th scope="col">Book Title</th>
       <th scope="col">Author</th>
@@ -125,8 +124,7 @@ if(isset($_GET['del']))
   {
 ?>
     <tr>
-    <th scope="row"><?php echo $row['id']; ?></th>
-    <td><a href="readOnce.php?id=<?php echo $row['id'];?>" >
+      <td><a href="readOnce.php?id=<?php echo $row['id'];?>" >
           <img  src="upload/<?php echo $row['image'];?>" width="160" height="190" alt="Card image cap"></td>
         </a>
     <td><h6><br/><br/><br/><?php echo $row['title'];?></h6></td>

@@ -18,9 +18,14 @@ class bookClass extends user implements ILibrary
       private $title;
       private $author;
       private $publisher;  
-      public $image;
+      private $subject;
+      private $description;
+      private $isbn;
+      private $image;
 
-
+      public function __construct() 
+      {
+      }
 
       
 // ------------ Read all the books from database -------------//
@@ -139,6 +144,10 @@ class bookClass extends user implements ILibrary
       {
         header('Location: main.php');
       }
+      else
+      {
+        return false;
+      }
     
     }
     
@@ -162,13 +171,14 @@ class bookClass extends user implements ILibrary
       // will upload cover file to server
       function uploadPhoto(){
         
-                $target_dir = "upload/";
-        $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+        $target_dir = "upload/";
+        $target_file = $target_dir . basename($_FILES["image"]["name"]);
         $uploadOk = 1;
         $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-        // Check if image file is a actual image or fake image
+
+        // To check if the image fake or real one
         if(isset($_POST["submit"])) {
-            $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+            $check = getimagesize($_FILES["image"]["tmp_name"]);
             if($check !== false) {
                 echo "File is an image - " . $check["mime"] . ".";
                 $uploadOk = 1;
@@ -177,30 +187,43 @@ class bookClass extends user implements ILibrary
                 $uploadOk = 0;
             }
         }
+
         // Check if file already exists
-        if (file_exists($target_file)) {
+        if (file_exists($target_file)) 
+        {
             echo "Sorry, file already exists.";
             $uploadOk = 0;
         }
-        // Check file size
-        if ($_FILES["fileToUpload"]["size"] > 500000) {
+
+
+        // Check the size of the file
+        if ($_FILES["image"]["size"] > 10240000) 
+        {
             echo "Sorry, your file is too large.";
             $uploadOk = 0;
         }
+
         // Allow certain file formats
         if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
         && $imageFileType != "gif" ) {
             echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
             $uploadOk = 0;
         }
+
+
         // Check if $uploadOk is set to 0 by an error
         if ($uploadOk == 0) {
             echo "Sorry, your file was not uploaded.";
         // if everything is ok, try to upload file
-        } else {
-            if (move_uploaded_file($_FILES["upload"]["tmp_name"], $target_file)) {
+        } 
+        else 
+        {
+            if (move_uploaded_file($_FILES["upload"]["tmp_name"], $target_file)) 
+            {
                 echo "The file ". basename( $_FILES["upload"]["name"]). " has been uploaded.";
-            } else {
+            } 
+            else 
+            {
                 echo "Sorry, there was an error uploading your file.";
             }
         }

@@ -43,8 +43,7 @@ if(isset($_GET['del']))
 <div class="main">
 
   <div class="row">
-    <div class="col-lg-12">
-      <div class="jumbotron">
+    <div class="col-lg-8">
         <h4 class="mb-4">Book details</h4>
 
 <table class='table table-hover table-bordered'>
@@ -64,8 +63,24 @@ if(isset($_GET['del']))
         <td><?php echo $result['publisher'];?></td>
     </tr>
  
+    <tr>
+        <td>Subject</td>
+        <td><?php echo $result['subject'];?></td>
+    </tr>
    
-   
+    <tr>
+        <td>Description</td>
+        <td><?php echo $result['description'];?></td>
+    </tr>
+
+    <tr>
+        <td>ISBN</td>
+        <td><?php echo $result['isbn'];?></td>
+    </tr>
+
+
+
+
     <tr>
 
     </tr>
@@ -83,8 +98,16 @@ if(isset($_GET['del']))
 </div>
 
  
-      </div>
      </div>
+
+
+     <div class="col-lg-4">
+     <tr><br/><br/>
+        <td><img src="upload/<?php echo $result['image'];?>" width="380" height="460" alt="Card image cap"></td>
+    </tr>
+</div>
+
+
     </div>
 </div>
 </div>
