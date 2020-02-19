@@ -77,13 +77,6 @@ if(isset($_GET['del']))
         <td>ISBN</td>
         <td><?php echo $result['isbn'];?></td>
     </tr>
-
-
-
-
-    <tr>
-
-    </tr>
  
 </table>
 <br/>
@@ -96,18 +89,12 @@ if(isset($_GET['del']))
 <div class='right-button-margin'>
     <a href='main.php' class='float-right btn btn-primary btn-lg'> Back to list </a>
 </div>
-
- 
      </div>
-
-
      <div class="col-lg-4">
      <tr><br/><br/>
         <td><img src="upload/<?php echo $result['image'];?>" width="380" height="460" alt="Card image cap"></td>
     </tr>
 </div>
-
-
     </div>
 </div>
 </div>

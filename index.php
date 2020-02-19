@@ -41,9 +41,5 @@
 				<a href="#" class="forgot">Forgot your email or password?</a>
 		</form>
     </div>
-
-   
-
-
 </body>
 </html>

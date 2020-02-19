@@ -6,16 +6,8 @@ require_once "classes/bookClass.php";
 require_once "user.php";
 include "layout/header.php";
 
-// if (isset($_POST['submit-search']))
-//     {
-//         $search = 
-//     }
-
 
 ?>
-
-
-
 
 <div class="container-fluid mt-4">
 <div class="">
@@ -23,10 +15,7 @@ include "layout/header.php";
   <main role="main" class="pb-3">
   <h1>Index</h1>
 
-
-
-<!--2 search row start -->
-
+<!-- search row start -->
 <div class="">
 <form action="search.php" method="POST">
   <input type="text" name="search" placeholder="Search">
@@ -34,15 +23,7 @@ include "layout/header.php";
 </form>
 
 </div>
-<!-- 2search row finish -->
-
-
-
 <!-- search row finish -->
-
-
-
-
 <div class="row mt-4">
 <div class="col-lg-12">
 <a href="create.php" class="float-right btn btn-success">Add Book</a> <br/><br/>
@@ -50,17 +31,9 @@ include "layout/header.php";
 </div>
 </div>
 
-
 <!-- To list all the Books -->
-
-
-
-
-
 <div class="row">
     <div class="col-lg-12">
-
-
         <table class="table table-hover">
   <thead>
     <tr>
@@ -93,23 +66,15 @@ include "layout/header.php";
     
     <td><br/><br/><a href="readOnce.php?id=<?php echo $row['id'];?>"  class='btn btn-primary left-margin'>
           <span class='glyphicon glyphicon-list'></span> Read </a></td>
-
-
   </tr>
 <?php
   }
 ?>
           </tbody>
         </table>
-
-
     </div>
     </div>
-
-
 <!-- list of books finish -->
-
-
 </main>
 </div> 
 </div> 

@@ -26,7 +26,6 @@ abstract class AbstractDb
      }
 
 
-
     // Methods for the properties
 
 

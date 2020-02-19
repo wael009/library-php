@@ -1,7 +1,5 @@
 <?php
  require_once 'classes/database.php';
-
-
  
  //use \main\classes\database;
 
@@ -38,7 +36,6 @@
             }
         }
     }
-
         // To finish and destroy the connection 
     public function log_out() {
         session_destroy();

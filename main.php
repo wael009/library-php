@@ -6,7 +6,6 @@ require_once "classes/bookClass.php";
 require_once "user.php";
 include "layout/header.php";
 
-
 if(isset($_GET['del']))
 {
   $id = $_GET['del'];
@@ -17,19 +16,13 @@ if(isset($_GET['del']))
 
 ?>
 
-
-
-
 <div class="container-fluid mt-4">
 <div class="">
 
   <main role="main" class="pb-3">
   <h1>Index</h1>
 
-
-
-
-<!-- row for search -->
+<!-- row for filter -->
 <div class="row mt-4 " >
   <div class="col mb-3">
     <form class="form-inline" method="post" action="*">
@@ -37,7 +30,7 @@ if(isset($_GET['del']))
       <div class="form-group">
         <div class="col">
             <label class="control-label" for="FilterByBooksOptions">Book Options</label>
-            <select name="FilterByBookssOptions" class="form-control" data-val="true" data-val-required="The Books Options field is required."><option selected="selected" value="0">Any</option>
+            <select name="FilterByBookssOptions" class="form-control"><option selected="selected" value="0">Any</option>
               <option value="1">Academic books</option>
                 <option value="2">Historical books</option>
               <option value="3">Programming books</option>
@@ -47,8 +40,8 @@ if(isset($_GET['del']))
       </div>
 
         <div class="col">
-            <label class="control-label" for="FilterBy.FilterByOption">Filter By</label>
-            <select name="FilterBy.FilterByOption" class="form-control" data-val="true" data-val-required="The Filter By field is required."><option selected="selected" value="0">All</option>
+            <label class="control-label" for="FilterByOption">Filter By</label>
+            <select name="FilterByOption" class="form-control"><option selected="selected" value="0">All</option>
               <option value="1">By Name...</option>
               <option value="2">By Propery Type...</option>
               <option value="3">By Review Rating...</option>
@@ -58,8 +51,8 @@ if(isset($_GET['del']))
 
 
         <div class="col">
-            <label class="control-label" for="FilterBy.FilterByValue">Filter Value</label>
-            <input type="text" name="FilterBy.FilterByValue" class="form-control" value="">
+            <label class="control-label">Filter Value</label>
+            <input type="text" name="FilterByValue" class="form-control" value="">
         </div>
 
 
@@ -71,22 +64,16 @@ if(isset($_GET['del']))
     </form>
   </div>
 </div>
-<!-- search row finish -->
+<!-- search row filter -->
 
-
-
-
-<!--2 search row start -->
+<!-- search row start -->
 
 <form action="search.php" method="POST">
   <input type="text" name="search" placeholder="Search">
   <button type="submit" class="btn btn-info" name="submit-search">Search</button>
 </form>
 
-<!-- 2search row finish -->
-
-
-
+<!-- search row finish -->
 <div class="row mt-4">
 <div class="col-lg-12">
 <a href="create.php" class="float-right btn btn-success btn-lg">Add Book</a> <br/><br/>
@@ -94,13 +81,7 @@ if(isset($_GET['del']))
 </div>
 </div>
 
-
 <!-- To list all the Books -->
-
-
-
-
-
 <div class="row">
     <div class="col-lg-12">
 
@@ -115,7 +96,7 @@ if(isset($_GET['del']))
     </tr>
   </thead>
           <tbody>
-
+          
 <?php
   $readObj = new bookClass();
   $rows = $readObj->readAllData();
@@ -127,29 +108,21 @@ if(isset($_GET['del']))
       <td><a href="readOnce.php?id=<?php echo $row['id'];?>" >
           <img  src="upload/<?php echo $row['image'];?>" width="160" height="190" alt="Card image cap"></td>
         </a>
-    <td><h6><br/><br/><br/><?php echo $row['title'];?></h6></td>
-    <td><h6><br/><br/><br/><?php echo $row['author'];?></h6></td>
-    <td><h6><br/><br/><br/><?php echo $row['publisher'];?><h6></td>
+    <td><p><?php echo $row['title'];?></p></td>
+    <td><p><?php echo $row['author'];?></p></td>
+    <td><p><?php echo $row['publisher'];?><p></td>
     
     <td><br/><br/><a href="readOnce.php?id=<?php echo $row['id'];?>"  class='btn btn-primary btn-lg'>
           <span class='glyphicon glyphicon-list'></span> Read </a></td>
-
-
   </tr>
 <?php
   }
 ?>
           </tbody>
         </table>
-
-
     </div>
     </div>
-
-
 <!-- list of books finish -->
-
-
 </main>
 </div> 
 </div> 

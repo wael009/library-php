@@ -7,8 +7,4 @@ interface IuserDbh
     public function deleteUser()
     public function checkUser()
 }
-
-
-
-
 ?>

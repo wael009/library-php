@@ -11,5 +11,4 @@ interface IDatabase
     public function disconnect();
 	//public function addDatabase();  // if we want to add different database
 }
-
 ?>

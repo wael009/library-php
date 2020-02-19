@@ -5,7 +5,7 @@ require_once "classes/database.php";
 // include the layout of the header
 include "layout/header.php";
 
-// need to the get ID of the bookClass to be read
+
 $id = isset($_GET['id']) ? $_GET['id'] : die('ERROR: missing ID.');
 
 if(isset($_GET['id']))
@@ -46,7 +46,6 @@ $updateObj = new bookClass();
 $updateObj->update($fields, $id);
 
 }
-
 ?>
 
 <div class="container mt-4">
@@ -91,13 +90,8 @@ $updateObj->update($fields, $id);
   </div>
   <br/> 
 
-  
-
   <input type="submit" name="submit" class="btn btn-primary">
 </form>
-
-
-        
      </div>
      <div class="col-lg-4">
     <tr><br/><br/><br/>

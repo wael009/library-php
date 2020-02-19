@@ -26,16 +26,8 @@ $fields = [
 
 ];
 
-
 $createObj = new bookClass();
 $createObj->create($fields);
-
-// if(isset($POST['submit-cover']))
-
-//$createObj->uploadPhoto();
-
-
-
 
 }
 
@@ -91,12 +83,8 @@ include "layout/header.php";
   
   <br/> 
     <input type="submit" name="submit" class="btn btn-primary btn-lg">
-
-
-
   <br/> 
 </form>
-
       </div>
      </div>
     </div>

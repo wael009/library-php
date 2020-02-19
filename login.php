@@ -26,5 +26,4 @@ if(isset($_POST['submit']))
 		header('location:main.php');	// If yes redirct to the main page.
 	}
 }
-
 ?>

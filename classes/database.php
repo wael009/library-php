@@ -4,10 +4,8 @@
 require_once 'classes/IDatabase.php';
 require_once 'BasicObject.php';
 
-
 use \Main\BasicObject;
 use \main\classes\IDatabase;
-
 
 class database implements IDatabase
 {
@@ -19,7 +17,7 @@ class database implements IDatabase
 
     public function connect()    
     {
-        //   to create new PDO connection.
+        //   creating new PDO connection
         $this->pdo = new PDO($this->dbserver, $this->dbuser, $this->dbpass);
 
         // To disable emulated prepared statements and use real prepared statements (to avoid inject malicious SQL attack).
@@ -39,6 +37,4 @@ class database implements IDatabase
         return $this->pdo;
     }
 }
-
-
 ?>
