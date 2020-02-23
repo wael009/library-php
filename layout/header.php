@@ -1,7 +1,17 @@
+<?php
+if(isset($_SESSION['user'])){
+
+}
+else{
+    header('location:index.php');
+
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Library</title>
 
      
@@ -33,7 +43,7 @@
         <a class="nav-link" href="layout/ContactUs.php">Contact us</a>
       </li>
     </ul>
-        <a href="index.php" class="btn btn-info btn-lg">
+        <a href="logout.php" class="btn btn-info btn">
           <span class="glyphicon glyphicon-log-out"></span> Log out
         </a>
 

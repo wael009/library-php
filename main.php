@@ -1,9 +1,12 @@
 <?php
    // start the session
-session_start();
+//session_start();
+
+// will direct this page to the main page, if the login was successful
+
 
 require_once "classes/bookClass.php";
-require_once "user.php";
+require_once "login.php";
 include "layout/header.php";
 
 if(isset($_GET['del']))
@@ -25,7 +28,7 @@ if(isset($_GET['del']))
 <!-- row for filter -->
 <div class="row mt-4 " >
   <div class="col mb-3">
-    <form class="form-inline" method="post" action="*">
+    <form class="form-inline" method="post" action="">
 
       <div class="form-group">
         <div class="col">
@@ -57,7 +60,7 @@ if(isset($_GET['del']))
 
 
         <div class="col">
-            <div type="*" class="btn btn-primary mt-3">Go</div>
+            <input type="submit" name="filter" class="btn btn-primary mt-3" value="Go"/>
         </div>
 
        </div>
@@ -76,7 +79,8 @@ if(isset($_GET['del']))
 <!-- search row finish -->
 <div class="row mt-4">
 <div class="col-lg-12">
-<a href="create.php" class="float-right btn btn-success btn-lg">Add Book</a> <br/><br/>
+    <?php if($_SESSION['is_admin']=='admin'){ ?>
+<a href="create.php" class="float-right btn btn-success btn">Add Book</a><br/><br/><?php }?>
 
 </div>
 </div>
@@ -98,26 +102,36 @@ if(isset($_GET['del']))
           <tbody>
           
 <?php
+
   $readObj = new bookClass();
   $rows = $readObj->readAllData();
-  
-  foreach ($rows as $row)
-  {
-?>
-    <tr>
-      <td><a href="readOnce.php?id=<?php echo $row['id'];?>" >
-          <img  src="upload/<?php echo $row['image'];?>" width="160" height="190" alt="Card image cap"></td>
-        </a>
-    <td><p><?php echo $row['title'];?></p></td>
-    <td><p><?php echo $row['author'];?></p></td>
-    <td><p><?php echo $row['publisher'];?><p></td>
-    
-    <td><br/><br/><a href="readOnce.php?id=<?php echo $row['id'];?>"  class='btn btn-primary btn-lg'>
-          <span class='glyphicon glyphicon-list'></span> Read </a></td>
-  </tr>
-<?php
-  }
-?>
+if(isset($_POST['filter'])){
+    $bookoption = isset($_POST['FilterByBookssOptions'])?$_POST['FilterByBookssOptions']:'';
+    $filterby= isset($_POST['FilterByOption'])?$_POST['FilterByOption']:'';
+    $filterval = isset($_POST['FilterByValue'])?$_POST['FilterByValue']:'';
+    $rows = $readObj->serachfilter($bookoption,$filterby,$filterval);
+//    print_r($rows);
+
+}
+
+if(isset($rows)) {
+    foreach ($rows as $row) {
+        ?>
+        <tr>
+            <td><a href="readOnce.php?id=<?php echo $row['id']; ?>">
+                    <img src="upload/<?php echo $row['image'] ?>" id="frontImg" alt="Card image cap"></td>
+            </a>
+            <td><p><?php echo $row['title']; ?></p></td>
+            <td><p><?php echo $row['author']; ?></p></td>
+            <td><p><?php echo $row['publisher']; ?><p></td>
+
+            <td><br/><br/><a href="readOnce.php?id=<?php echo $row['id']; ?>" class='btn btn-primary btn'>
+                    <span class='glyphicon glyphicon-list'></span> Read </a></td>
+        </tr>
+        <?php
+    }
+}
+  ?>
           </tbody>
         </table>
     </div>

@@ -1,50 +1,17 @@
 <?php
-// To include database and any other object files
-require_once "classes/bookClass.php";
-require_once "classes/database.php";
-
-
-if(isset($_POST['submit']))
-{
-  $title = $_POST['title'];
-  $author = $_POST['author'];
-  $publisher = $_POST['publisher'];
-  $subject = $_POST['subject'];
-  $description = $_POST['description'];
-  $isbn = $_POST['isbn'];
-  $image = $_POST['image'];
-
-
-$fields = [
-  'title'=>$title,
-  'author'=>$author,
-  'publisher'=>$publisher,
-  'subject'=>$subject,
-  'description'=>$description,
-  'image'=>$image,
-  'isbn'=>$isbn,
-
-];
-
-$createObj = new bookClass();
-$createObj->create($fields);
-
-}
+session_start();
 
 // to include the header
 include "layout/header.php";
+
 ?>
-
-
 <div class="container mt-4">
   <div class="row">
     <div class="col-lg-12">
       <div class="jumbotron">
         <h4 class="mb-4"> Add Book </h4>
 
-
-
-        <form action="" method="post">
+        <form action="upload.php" method="POST" enctype="multipart/form-data" >
 
   <div class="form-group">
     <label for="title">Title</label>
@@ -82,9 +49,10 @@ include "layout/header.php";
   </div>
   
   <br/> 
-    <input type="submit" name="submit" class="btn btn-primary btn-lg">
+    <input type="submit" name="submit" class="btn btn-primary btn">
   <br/> 
 </form>
+
       </div>
      </div>
     </div>

@@ -1,9 +1,8 @@
 <?php
    // start the session
-session_start();
 
 require_once "classes/bookClass.php";
-require_once "user.php";
+require_once "login.php";
 include "layout/header.php";
 
 
@@ -47,27 +46,29 @@ include "layout/header.php";
           <tbody>
 
 <?php
+$searchval = isset($_POST['search'])?$_POST['search']:'';
   $searchObj = new bookClass();
-  $rows = $searchObj->readAllData();
-  //$rows = $searchObj->search();
+  $rows = $searchObj->search($searchval);
 
-  
-  foreach ($rows as $row)
-  {
-?>
-    <tr>
-    <th scope="row"><?php echo $row['id']; ?></th>
-    <td><a href="readOnce.php?id=<?php echo $row['id'];?>" >
-          <img  src="upload/<?php echo $row['image'];?>" width="160" height="190" alt="Card image cap"></td>
-        </a>
-    <td><h6><br/><br/><br/><?php echo $row['title'];?></h6></td>
-    <td><h6><br/><br/><br/><?php echo $row['author'];?></h6></td>
-    <td><h6><br/><br/><br/><?php echo $row['publisher'];?><h6></td>
-    
-    <td><br/><br/><a href="readOnce.php?id=<?php echo $row['id'];?>"  class='btn btn-primary left-margin'>
-          <span class='glyphicon glyphicon-list'></span> Read </a></td>
-  </tr>
-<?php
+  if(isset($rows[0])) {
+      foreach ($rows[0] as $row) {
+          ?>
+          <tr>
+              <th scope="row"><?php echo $row['id']; ?></th>
+              <td><a href="readOnce.php?id=<?php echo $row['id']; ?>">
+                      <img src="upload/<?php echo $row['image']; ?>" id="frontImg" alt="Card image cap"></td>
+              </a>
+              <td><h6><br/><br/><br/><?php echo $row['title']; ?></h6></td>
+              <td><h6><br/><br/><br/><?php echo $row['author']; ?></h6></td>
+              <td>
+                  <h6><br/><br/><br/><?php echo $row['publisher']; ?><h6>
+              </td>
+
+              <td><br/><br/><a href="readOnce.php?id=<?php echo $row['id']; ?>" class='btn btn-primary left-margin'>
+                      <span class='glyphicon glyphicon-list'></span> Read </a></td>
+          </tr>
+          <?php
+      }
   }
 ?>
           </tbody>
@@ -78,12 +79,3 @@ include "layout/header.php";
 </main>
 </div> 
 </div> 
-
-
-
-
-
-
-
-
-

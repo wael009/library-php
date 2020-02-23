@@ -17,7 +17,7 @@ class database implements IDatabase
 
     public function connect()    
     {
-        //   creating new PDO connection
+        //   to create new PDO connection.
         $this->pdo = new PDO($this->dbserver, $this->dbuser, $this->dbpass);
 
         // To disable emulated prepared statements and use real prepared statements (to avoid inject malicious SQL attack).

@@ -26,40 +26,21 @@
         <a class="nav-link" href="../main">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="layout/AboutUs.php">About</a>
+        <a class="nav-link" href="AboutUs.php">About</a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="layout/ContactUs.php">Contact us<span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="ContactUs.php">Contact us<span class="sr-only">(current)</span></a>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-2">
-      <input class="form-control mr-sm-4" type="search" placeholder="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+    <a href="logout.php" class="btn btn-info btn">
+          <span class="glyphicon glyphicon-log-out"></span> Log out
+        </a>
   </div>
 </nav>
           <!-- Nav end here  -->
 
 
 
-
-      <!-- Footer  -->
- <div class="footer-dark">
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 item text-center">
-                    <h3>World of books</h3>
-                    <p>Praesent sed lobortis mi. Suspendisse vel placerat ligula. Vivamus ac sem lacus. Ut vehicula rhoncus elementum. Etiam quis tristique lectus. Aliquam in arcu eget velit pulvinar dictum vel in justo.</p>
-                    <p>World of books © 2020<p>
-                </div>
-              </div>
-        </div>
-
-        
-    </footer>
-</div>
-      <!-- Footer end  -->
 
 </body>
 </html>

@@ -26,8 +26,11 @@
             $statement->bindParam(2, $password);    
             $statement->execute();  // to execute the statement
             
-            if ($statement->rowCount() == 1)
-            {   
+            //$result = $statement;
+            $result = $statement->fetch(PDO::FETCH_OBJ);
+
+            if ($statement->rowCount() > 0)
+            {   $_SESSION['is_admin']=$result->level;
                 return true;
             }
             else

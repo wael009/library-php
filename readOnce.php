@@ -1,6 +1,7 @@
 <?php
 
-include_once 'classes/database.php';
+
+include_once 'login.php';
 include_once 'classes/bookClass.php';
 
 // header page
@@ -80,14 +81,16 @@ if(isset($_GET['del']))
  
 </table>
 <br/>
+<?php if($_SESSION['is_admin']=='admin'){ ?>
         <td>
-            <a href="update.php?id=<?php echo $result['id'];?>" class="btn btn-outline-success btn-lg"><i class="fa fa-fw fa-edit"></i> Edit</a> |
-            <a href="main.php?del=<?php echo $result['id']; ?>" class="btn btn-outline-danger btn-lg" onClick="return confirm('Are you sure to delete this book?');"><i class="fa fa-fw fa-trash"></i> Delete</a>
+            <a href="update.php?id=<?php echo $result['id'];?>" class="btn btn-outline-success btn"><i class="fa fa-fw fa-edit"></i> Edit</a> |
+            <a href="main.php?del=<?php echo $result['id']; ?>" class="btn btn-outline-danger btn" onClick="return confirm('Are you sure to delete this book?');"><i class="fa fa-fw fa-trash"></i> Delete</a>
         </td>
+        <?php } ?>
 
 <!-- to move to the main page -->
 <div class='right-button-margin'>
-    <a href='main.php' class='float-right btn btn-primary btn-lg'> Back to list </a>
+    <a href='main.php' class='float-right btn btn-primary btn'> Back to list </a>
 </div>
      </div>
      <div class="col-lg-4">

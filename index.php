@@ -4,7 +4,7 @@
 
     // will direct this page to the main page, if the login was successful
 	if(isset($_SESSION['user'])){
-		//header('location:main.php');
+		header('location:main.php');
     }
 
 ?>

@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-md-12 item text-center">
                     <br/><h3>World of books</h3>
-                    <p>The website will be available soon with a different type of books, stories, articles.<br/> World of books © 2020 Copyright</p>
+                    <h6>The website will be available soon with a different type of books, stories, articles.<br/> World of books © 2020 Copyright</h6>
                 </div>
               </div>
                 <!-- Footer Elements -->

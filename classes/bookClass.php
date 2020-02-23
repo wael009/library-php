@@ -34,7 +34,6 @@ class bookClass extends user implements ILibrary
   public function readAllData()
   { 
     // to select from the book database
-    //$sql = "SELECT title, author, publisher, cover FROM book";
     $sql = "SELECT * FROM ". $this->dbTabel;  // to select data from database
     $result = $this->connect()->query($sql); // link to the database  
 
@@ -168,7 +167,7 @@ class bookClass extends user implements ILibrary
 
 
 // --------------- upload cover -----------------// 
-      // will upload cover file to server
+      // will upload cover file to server  
       function uploadPhoto(){
         
         $target_dir = "upload/";
@@ -183,7 +182,7 @@ class bookClass extends user implements ILibrary
                 echo "File is an image - " . $check["mime"] . ".";
                 $uploadOk = 1;
             } else {
-                echo "File is not an image.";
+                echo "This file is not an image";
                 $uploadOk = 0;
             }
         }
@@ -191,7 +190,7 @@ class bookClass extends user implements ILibrary
         // Check if file already exists
         if (file_exists($target_file)) 
         {
-            echo "Sorry, file already exists.";
+            echo "Same file name uploaded before.";
             $uploadOk = 0;
         }
 
@@ -199,7 +198,7 @@ class bookClass extends user implements ILibrary
         // Check the size of the file
         if ($_FILES["image"]["size"] > 10240000) 
         {
-            echo "Sorry, your file is too large.";
+            echo "The file too large, can't uploaded";
             $uploadOk = 0;
         }
 
@@ -213,7 +212,7 @@ class bookClass extends user implements ILibrary
 
         // Check if $uploadOk is set to 0 by an error
         if ($uploadOk == 0) {
-            echo "Sorry, your file was not uploaded.";
+            echo "The file is not uploaded";
         // if everything is ok, try to upload file
         } 
         else 
@@ -224,7 +223,7 @@ class bookClass extends user implements ILibrary
             } 
             else 
             {
-                echo "Sorry, there was an error uploading your file.";
+                echo "There are some errors while uploading the file...";
             }
         }
 }
@@ -232,14 +231,14 @@ class bookClass extends user implements ILibrary
 
 
 // ------------------ Search -----------------// 
-    public function search(){
-    
+    public function search($search)
+    {
 
-      $sql = "SELECT * FROM ".$this->dbTabel." WHERE title LIKE ?";  // to select data from database
-      $result = $this->connect()->prepare($sql); // link to the database  
-      $result->execute(array("{$title}%"));
 
-      //$result->fetchAll(PDO::FETCH_ASSOC);
+        $sql = "SELECT * FROM " . $this->dbTabel . " WHERE title LIKE ?";  // to select data from database
+        $result = $this->connect()->prepare($sql); // link to the database
+
+      $result->execute(array("%{$search}%"));
      
       if($result->rowCount() > 0)
       {
@@ -258,14 +257,71 @@ class bookClass extends user implements ILibrary
 
 
 
-    // new code
+
+    // ------------------ Filter -----------------// 
+    public function serachfilter($bookoption='',$filterby='',$filterval='')
+    {
+
+        switch ($bookoption) {
+            case "0":
+                $bookoption='';
+                break;
+            case "1":
+                $bookoption='academic';
+                break;
+            case "2":
+                $bookoption='historical';
+                break;
+            case "3":
+                $bookoption='programming';
+                break;
+            case "4":
+                $bookoption='drama';
+                break;
+            default:
+                $bookoption='science';
+        }
+        switch ($filterby) {
+            case "0":
+                $filterby='';
+                break;
+            case "1":
+                $filterby='title';
+                break;
+            case "2":
+                $filterby='author';
+                break;
+            default:
+                $filterby='title';
+        }
 
 
+        $sql = "SELECT * FROM " . $this->dbTabel . " WHERE subject LIKE :bookoption and title LIKE :filterval order by :filterby ";  // to select data from database
+        $result = $this->connect()->prepare($sql); // link to the database
 
+        $result->bindValue(':bookoption',"%$bookoption%");
+        $result->bindValue(':filterval',"%$filterval%");
+        $result->bindValue(':filterby',"%$filterby%");
+
+        $result->execute();
+
+        if($result->rowCount() > 0)
+        {
+            while ($row = $result->fetchAll(PDO::FETCH_ASSOC))
+            {
+                $data[] = $row;
+            }
+            return $data[0];
+        }
+        else
+        {
+            echo "Sorry.. there are no results matching!";
+        }
+
+    }
 
 
 } 
-
 
 
 

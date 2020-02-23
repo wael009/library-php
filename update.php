@@ -1,6 +1,7 @@
 <?php
+
 require_once "classes/bookClass.php";
-require_once "classes/database.php";
+require_once "login.php";
 
 // include the layout of the header
 include "layout/header.php";
@@ -17,16 +18,20 @@ if(isset($_GET['id']))
 }
 
 
-
 if(isset($_POST['submit']))
 {
+    $image = $result['image'];
+    if(isset($_FILES['image']['tmp_name']) && !empty($_FILES['image']['tmp_name'])){
+    unlink('/upload'.$result['image']);
+    move_uploaded_file($_FILES['image']['tmp_name'], "upload/". $_FILES["image"]['name']);
+    $image = $_FILES["image"]['name'];}
   $title = $_POST['title'];
   $author = $_POST['author'];
   $publisher = $_POST['publisher'];
   $subject = $_POST['subject'];
   $description = $_POST['description'];
   $isbn = $_POST['isbn'];
-  $image = $_POST['image'];
+//  $image = $image;
 
 
 $fields = [
@@ -54,7 +59,7 @@ $updateObj->update($fields, $id);
     <div class="col-lg-8">
         <h4 class="mb-4">Update Book</h4>
 
-        <form action="" method="post">
+        <form action="" method="post" enctype="multipart/form-data">
     <input type="hidden" name="id" value="<?php echo $result['id'];?>">
   <div class="form-group">
     <label for="title">Title</label>
